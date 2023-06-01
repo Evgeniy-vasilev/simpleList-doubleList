@@ -224,7 +224,5 @@ public class Main {
         list.reverseList();
 
         list.print();
-
-
     }
 }
