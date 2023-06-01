@@ -32,7 +32,7 @@ public class Main {
         void print() {
             Node current = Head;
             while (current != null) {
-                System.out.println(current.value);
+                System.out.print(current.value + " ");
                 current = current.next;
             }
         }
@@ -68,6 +68,23 @@ public class Main {
                 current = current.next;
             }
             return null;
+        }
+
+        /**
+         * Метод разворота односвязного списка (двухсвязного или односвязного на выбор).
+         */
+        void reverseList() {
+            Node prev = null;
+            Node current = Head;
+
+            while (current != null) {
+                Node next = current.next;
+                current.next = prev;
+                prev = current;
+                current = next;
+            }
+
+            Head = prev;
         }
     }
 
@@ -122,7 +139,7 @@ public class Main {
         void print() {
             Node current = Head;
             while (current != null) {
-                System.out.println(current.value);
+                System.out.print(current.value + " ");
                 current = current.next;
             }
         }
@@ -173,6 +190,23 @@ public class Main {
             }
             return null;
         }
+
+        /**
+         * Метод разворота двусвязного списка (двухсвязного или односвязного на выбор).
+         */
+        void reverseList() {
+            dList.Node prev = null;
+            dList.Node current = Head;
+
+            while (current != null) {
+                dList.Node next = current.next;
+                current.next = prev;
+                prev = current;
+                current = next;
+            }
+
+            Head = prev;
+        }
     }
 
     public static void main(String[] args) {
@@ -181,11 +215,16 @@ public class Main {
         list.pushBack(1);
         list.pushBack(2);
         list.pushBack(3);
+        list.pushBack(4);
+        list.pushBack(5);
+
+        list.print();
+        System.out.println();
+
+        list.reverseList();
 
         list.print();
 
-        System.out.println(list.popFront());
 
-        list.print();
     }
 }
